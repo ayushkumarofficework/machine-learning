@@ -5,13 +5,15 @@ from basics.datafetching.base.BaseDataFetching import BaseDataFetching
 
 
 class CsvReading(BaseDataFetching):
+
+    dataframe : DataFrame
+
     def __init__(self):
         pass
 
-    def fetch_data(self) -> DataFrame:
-        dataframe = pd.read_csv('..\\..\\..\\datasets\\train.csv',encoding='ISO-8859-1')
-        print(dataframe.head())
-        return dataframe
+    def fetch_data(self):
+        self.dataframe = pd.read_csv('..\\..\\..\\datasets\\train.csv',encoding='ISO-8859-1')
+        print(self.dataframe.head())
 
 
 def main():
