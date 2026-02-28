@@ -1,4 +1,3 @@
-import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 from pandas import DataFrame
@@ -12,6 +11,6 @@ class WebReading(BaseDataFetching):
         super().__init__()
 
     dataframe : DataFrame
-    def fetch_data(self):
-        response = requests.get('https://www.ambitionbox.com/list-of-companies')
+    def fetch_data(self, path : str):
+        response = requests.get(path)
         soup = BeautifulSoup(response, 'lxml')

@@ -6,9 +6,8 @@ from basics.datafetching.base.BaseDataFetching import BaseDataFetching
 
 
 class ApiReading(BaseDataFetching):
-    dataframe : DataFrame
-    def fetch_data(self):
-        response = requests.request(method="GET", url="http://127.0.0.1:8000/api/reading")
+    def fetch_data(self , path : str):
+        response = requests.request(method="GET", url=path)
         dataframe = pd.DataFrame(response.json())
         print(self.dataframe)
 
